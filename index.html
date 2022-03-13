@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Now!</h1>
+        <!-- form -->
+        <!-- to allow form submit the input without filling it to return False we use novalidate -->
+        <!-- check JS File validateForm function -->
+        <form id="form" novalidate>
+            <!-- the reason why we spearated them with different div "form-group"
+                 is to space them out -->
+            <!-- full name -->
+            <div class="form-group">
+                <label for="name">full name</label>
+                <!-- required will require the user to fill the input -->
+                <input type="text"  id="name" placeholder="Full name" required minlength="3" maxlength="120" name="name">
+            </div>
+            <!-- phone number -->
+            <div class="form-group">
+                <label for="phone">phone number</label>
+                <!-- [0-9] mean only number and {10} how long is the number -->
+                <input type="tel"  id="phone" placeholder="Phone Number" required pattern="[0-9]{10}" name="phone">
+            </div>
+            <!-- Email address -->
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email"  id="email" placeholder="Example@mail.com" required name="email">
+            </div>
+            <!-- website -->
+            <div class="form-group">
+                <label for="website">Website (With https://)</label>
+                <input type="url"  id="website" placeholder="https://www.Example.com" required name="website">
+            </div>
+            <!-- password -->
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <!-- these password pattern are complex we just copy them from a website  in short we want upper characters and lower and 8 long-->
+                <!-- "title" how to change the complete pop up in the password input when the password you entier don't match the requirement  -->
+                <input type="password"  id="password1" placeholder="Password(8 character long, lowercase, uppercase, one number)" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Enter 1 uppercase 1 lower case and one number">
+            </div>
+            <!-- confirm password -->
+            <div class="form-group">
+                <label for="password2"> Confirm Password</label>
+                <input type="password"  id="password2" placeholder="confirm Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <!-- Success or failed -->
+        <div class="message-container">
+            <h3 id="message">Success/Error</h3>
+        </div>
+    </div>
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
